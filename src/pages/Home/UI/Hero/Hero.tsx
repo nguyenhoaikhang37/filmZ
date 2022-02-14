@@ -1,5 +1,5 @@
-import { Container, Section, SectionTitle } from '../../styles/GlobalComponents';
-import InputGroup from '../Common/InputGroup';
+import { Container, Section, SectionTitle } from '../../../../styles/GlobalComponents';
+import InputGroup from '../../../../components/Common/InputGroup';
 import { Desc } from './HeroStyles';
 import { BsSearch } from 'react-icons/bs';
 

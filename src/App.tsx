@@ -1,13 +1,16 @@
-import Header from './components/Header/Header';
-import Hero from './components/Hero/Hero';
-import Home from './pages/Home';
+import { Route, Routes } from 'react-router-dom';
+
 import { Wrapper } from './styles/GlobalComponents';
+import Home from './pages/Home';
+import LogIn from './pages/LogIn';
 
 function App() {
   return (
     <Wrapper>
-      <Header />
-      <Home />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="login" element={<LogIn />} />
+      </Routes>
     </Wrapper>
   );
 }

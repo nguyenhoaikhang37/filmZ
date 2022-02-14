@@ -42,7 +42,7 @@ export const ProductImg = styled.img`
   border-radius: 8px;
 
   width: 100%;
-  max-height: 300px;
+  height: 400px;
   object-fit: cover;
   transition: all 0.3s linear;
 

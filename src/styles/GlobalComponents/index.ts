@@ -9,13 +9,28 @@ export const Container = styled.div`
   max-width: 1240px;
   padding: 0 2rem;
   margin: 0 auto;
+  overflow-x: hidden;
 `;
 
-export const Section = styled.div<{ flex?: boolean; justify?: string; vertical?: boolean }>`
+export const Section = styled.div<{
+  flex?: boolean;
+  justify?: string;
+  vertical?: boolean;
+  gap?: string;
+
+  column?: boolean;
+}>`
   display: ${(props) => (props.flex ? 'flex' : '')};
   align-items: ${(props) => (props.flex ? 'center' : '')};
   justify-content: ${(props) => props.justify};
   padding: ${(props) => (props.vertical ? '16rem 0 8rem 0' : '')};
+  gap: ${(props) => props.gap};
+
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+    flex-direction: ${(props) => (props.column ? 'column-reverse' : '')};
+    text-align: center;
+    align-items: ${(props) => (props.column ? 'stretch' : '')};
+  }
 
   /* & > div {
     flex: 1;
@@ -33,11 +48,11 @@ export const Input = styled.div<{ width?: string }>`
   display: flex;
   align-items: center;
   padding: 0 1.8rem;
-  max-width: ${(props) => props.width || '100%'};
   height: 6.4rem;
   border: 1px solid #323b54;
   border-radius: 1.2rem;
   color: #475069;
+  width: ${(props) => props.width || '100%'};
 
   input {
     background-color: transparent;
@@ -56,4 +71,26 @@ export const GridLayout = styled.div<{ gap: string; width: string }>`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(${(props) => props.width}, 1fr));
   grid-gap: ${(props) => props.gap};
+`;
+
+export const Spacing = styled.div<{ top: string }>`
+  margin-top: ${(props) => props.top};
+`;
+
+export const Button = styled.div<{ primary?: boolean }>`
+  cursor: pointer;
+  border-radius: 1.2rem;
+  padding: 1.6rem 0;
+  background-color: ${(props) => (props.primary ? props.theme.colors.primary : '')};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:hover {
+    opacity: 0.9;
+  }
+`;
+
+export const WidthFull = styled.div`
+  flex: 1;
 `;
